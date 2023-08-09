@@ -1,7 +1,8 @@
 def solution(a, b, c):
-    if a != b != c != a:
+    caseNum = len(set([a, b, c]))
+    if caseNum == 3:
         return a + b + c
-    elif a == b == c == a:
-        return (a + b + c) * (a**2 + b**2 + c**2) * (a**3 + b**3 + c**3)
+    elif caseNum == 2:
+        return (a + b + c) * (a**2 + b**2 + c**2) 
     else:
-        return (a + b + c) * (a**2 + b**2 + c**2)
+        return (a + b + c) * (a**2 + b**2 + c**2) * (a**3 + b**3 + c**3)
