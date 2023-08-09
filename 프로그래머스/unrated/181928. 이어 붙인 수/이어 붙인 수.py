@@ -1,9 +1,9 @@
 def solution(num_list):
-    oddX = [];
-    evenX = [];
+    oddX = '';
+    evenX = '';
     for i in num_list:
         if i % 2 == 0:
-            evenX.append(str(i))
+            evenX += str(i)
         else:
-            oddX.append(str(i))
-    return int(''.join(evenX)) + int(''.join(oddX))
+            oddX += str(i)
+    return int(evenX) + int(oddX)
