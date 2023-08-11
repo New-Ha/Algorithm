@@ -5,4 +5,10 @@ function solution(arr, queries) {
         arr[el[1]] = tmp;
     })
     return arr
+    
+
+    // queries.forEach( ([a,b]) => {
+    //     [arr[a],arr[b]] = [arr[b],arr[a]];
+    // })
+    // return arr;
 }
