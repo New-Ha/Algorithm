@@ -5,4 +5,10 @@ function solution(n) {
         result.push(n)
     }
     return result
+    
+    // 재귀적 풀이
+    // arr.push(n)
+    // if (n === 1) return arr
+    // if (n % 2 === 0) return solution(n / 2, arr)
+    // return solution(3 * n + 1, arr)
 }
