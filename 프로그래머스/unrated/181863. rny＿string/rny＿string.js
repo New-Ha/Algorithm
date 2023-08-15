@@ -7,5 +7,8 @@ function solution(rny_string) {
     // }
     // return result
     
-    return rny_string.split('').reduce((acc, cur) => cur === 'm' ? acc + 'rn' : acc + cur, '')
+    //ver 2
+    // return rny_string.split('').reduce((acc, cur) => cur === 'm' ? acc + 'rn' : acc + cur, '')
+    
+    return rny_string.replaceAll('m', 'rn')
 }
