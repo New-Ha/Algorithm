@@ -1,10 +1,10 @@
 # [unrated] x 사이의 개수 - 181867 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181867) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181867?language=javascript) 
 
 ### 성능 요약
 
-메모리: 11.7 MB, 시간: 1.55 ms
+메모리: 38.5 MB, 시간: 1.32 ms
 
 ### 구분
 
