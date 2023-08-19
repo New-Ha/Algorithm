@@ -6,4 +6,6 @@ function solution(arr) {
         }
     })
     return X
+    
+    // return arr.reduce((acc, cur) => acc.concat(Array(cur).fill(cur)), [])
 }
