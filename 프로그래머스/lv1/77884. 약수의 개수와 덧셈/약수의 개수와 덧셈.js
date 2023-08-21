@@ -1,9 +1,9 @@
 function boolDivisor(n) {
-    const divisorNum = [];
+    let count = 0;
     for(let i = 1; i <= n; i++){
-        if(n % i === 0) divisorNum.push(i)
+        if(n % i === 0) count++
     }
-    return divisorNum.length % 2 == 0 ? 1 : -1
+    return count % 2 == 0 ? 1 : -1
 }
 
 function solution(left, right) {
