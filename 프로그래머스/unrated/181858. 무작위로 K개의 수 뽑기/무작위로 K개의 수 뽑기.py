@@ -3,9 +3,9 @@ def solution(arr, k):
     for i in arr:
         if i not in kindNum:
             kindNum.append(i);
+            if len(kindNum) == k: break;
             
-    if len(kindNum) >= k: return kindNum[0 : k];
-    else:
+    if len(kindNum) < k:
         for i in range(k - len(kindNum)):
             kindNum.append(-1)
-        return kindNum
+    return kindNum
