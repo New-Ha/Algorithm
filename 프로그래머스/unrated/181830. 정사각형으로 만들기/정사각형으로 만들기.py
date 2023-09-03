@@ -8,5 +8,5 @@ def solution(arr):
                 i.append(0)
     elif column > row:
         for i in range(column - row):
-            arr.append([0 for j in range(column)])
+            arr.append([0] * column)
     return arr
