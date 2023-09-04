@@ -1,5 +1,7 @@
 def solution(a, b):
-    sum = 0;
-    for x, y in zip(a, b):
-        sum += x * y;
-    return sum
+    # sum = 0;
+    # for x, y in zip(a, b):
+    #     sum += x * y;
+    # return sum
+    
+    return sum([x * y for x, y in zip(a, b)])
