@@ -1,5 +1,5 @@
 function solution(prices) {
-    //ver 1 : 이중 for 문 (O(n^2))
+    // ver 1 : 이중 for 문 (O(n^2))
     const result = [];
     for(let i = 0; i < prices.length; i++){
         for(let j = i + 1; j < prices.length; j++){
@@ -13,4 +13,5 @@ function solution(prices) {
     }
     result.push(0)
     return result
+    
 }
