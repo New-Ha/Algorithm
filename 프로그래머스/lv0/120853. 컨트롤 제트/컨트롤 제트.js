@@ -1,4 +1,10 @@
 function solution(s) {
+    //ver 1
+    // const strArr = s.split(' ');
+    // strArr.filter((el, idx) => el === 'Z' ? strArr[idx - 1] = '' : el)
+    // return strArr.reduce((acc, cur) => cur !== 'Z' ? acc + Number(cur) : acc, 0)
+    
+    //ver 2
     const strArr = s.split(' ');
     let sum = 0;
     
