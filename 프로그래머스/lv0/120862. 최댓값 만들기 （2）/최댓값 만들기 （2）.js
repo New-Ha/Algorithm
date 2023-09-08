@@ -1,5 +1,4 @@
 function solution(numbers) {
-    const top1 = numbers.sort((a, b) => a - b).slice(-2);
-    const top2 = numbers.sort((a, b) => a - b).slice(0, 2);
-    return Math.max(top1[0] * top1[1], top2[0] * top2[1])
+    const sorted = numbers.sort((a, b) => a - b)
+    return Math.max(sorted[0] * sorted[1], sorted[numbers.length -1] * sorted[numbers.length -2])
 }
