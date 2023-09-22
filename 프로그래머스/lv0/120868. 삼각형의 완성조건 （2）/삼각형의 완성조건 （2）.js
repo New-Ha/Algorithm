@@ -1,4 +1,7 @@
 function solution(sides) {
-    // const sorted = sides.sort((a, b) => a- b);
+    // b - (b - a) + (a + b - 1) - b;
+    // - b + a + a + b - 1;
+    // 2a - 1;
+    
     return 2 * Math.min(...sides) - 1;
 }
