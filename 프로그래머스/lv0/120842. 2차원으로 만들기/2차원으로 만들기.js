@@ -7,12 +7,12 @@ function solution(num_list, n) {
     // }).filter(el => el !== undefined)
     
     //ver 2
-    const result = [];
-    for(let i = 0; i < num_list.length / n; i++){
-        result.push(num_list.slice(n*i, n*i+n))
-    }
-    return result
+    //const result = [];
+    //for(let i = 0; i < num_list.length / n; i++){
+    //    result.push(num_list.slice(n*i, n*i+n))
+    //}
+    //return result
     
-    // return Array(num_list.length / n).fill([]).map(() => num_list.splice(0, n))
-    
+    //ver 3
+    return Array(num_list.length / n).fill([]).map((_, idx) => num_list.slice(n*idx, n*idx+n))
 }
