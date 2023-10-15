@@ -1,10 +1,10 @@
 # [level unrated] 한 번만 등장한 문자 - 120896 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120896) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120896?language=python3) 
 
 ### 성능 요약
 
-메모리: 33.5 MB, 시간: 0.06 ms
+메모리: 10.2 MB, 시간: 0.01 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2023년 10월 0일 21:21:25
+2023년 10월 0일 21:24:2
 
 ### 문제 설명
 
