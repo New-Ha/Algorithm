@@ -1,2 +1,3 @@
-SELECT count(DISTINCT(name)) FROM animal_ins
-# WHERE name IS NOT NULL
+SELECT COUNT(name) FROM (SELECT name FROM animal_ins
+GROUP BY name) AS name_table
+
