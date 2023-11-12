@@ -1,6 +1,6 @@
 # [level unrated] 구슬을 나누는 경우의 수 - 120840 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120840) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120840#) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2023년 11월 0일 18:26:6
+2023년 11월 0일 18:27:24
 
 ### 문제 설명
 

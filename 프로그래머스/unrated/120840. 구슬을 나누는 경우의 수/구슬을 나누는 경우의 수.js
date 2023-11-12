@@ -1,9 +1,3 @@
-function factorial(num) {
-    if (num < 0) return -1;
-    if (num === 0) return 1;
-    return (num * factorial(num - 1));
-}
-
 function solution(balls, share) {
     let n = 1;
     for(let i = balls; i >= 1; i--){
