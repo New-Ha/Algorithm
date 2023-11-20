@@ -1,9 +1,9 @@
 n = int(input());
-arr = input().split(' ');
+arr = list(map(int, input().split(' ')));
 target = int(input());
 count = 0;
 for i in range(n):
-    if int(arr[i]) == target:
+    if arr[i] == target:
         count += 1
 print(count)
     
