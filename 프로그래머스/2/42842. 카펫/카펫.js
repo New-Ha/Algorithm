@@ -1,9 +1,14 @@
 function solution(brown, yellow) {
-    const erea = brown + yellow
+    const area = brown + yellow
     const factors = [];
-    for(let i = 2; i <= Math.floor(Math.sqrt(erea)); i++){
-        if(erea % i === 0) factors.push(i)
+    for(let i = 2; i <= Math.floor(Math.sqrt(area)); i++){
+        if(area % i === 0){
+            if((i - 2) * (area / i - 2) === yellow){
+                factors.push(area / i)
+                factors.push(i)
+            }
+        }
     }
-    const filtered = factors.filter(el => (el - 2) * (erea / el - 2) === yellow);
-    return [erea / filtered[0], filtered[0]]
+    return factors
 }
+
