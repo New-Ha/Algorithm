@@ -6,6 +6,6 @@ function solution(a, b) {
     for(let i = 0; i < a - 1; i++){
         daytime += month[i]
     }
-    console.log(daytime)
+
     return day[daytime % 7]
 }
