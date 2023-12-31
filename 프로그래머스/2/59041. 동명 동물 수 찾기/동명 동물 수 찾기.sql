@@ -1,3 +1,4 @@
+-- 코드를 입력하세요
 SELECT name, count(name) as count FROM animal_ins
 WHERE name IS NOT NULL
 GROUP BY name
