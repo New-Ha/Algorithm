@@ -1,4 +1,4 @@
-SELECT I.animal_id, I.name
-FROM animal_ins AS I INNER JOIN animal_outs AS O ON I.animal_id = O.animal_id
-WHERE I.datetime > O.datetime
-ORDER BY I.datetime
+SELECT I.ANIMAL_ID, I.NAME FROM ANIMAL_INS I INNER JOIN ANIMAL_OUTS O
+ON I.ANIMAL_ID = O.ANIMAL_ID 
+WHERE I.DATETIME > O.DATETIME
+ORDER BY I.DATETIME;
