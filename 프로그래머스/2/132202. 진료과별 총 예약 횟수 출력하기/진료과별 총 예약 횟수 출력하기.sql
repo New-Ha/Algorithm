@@ -1,4 +1,4 @@
-SELECT mcdp_cd as 진료과코드, count(mcdp_cd) as 5월예약건수 FROM appointment
-WHERE APNT_YMD LIKE '2022-05%'
-GROUP BY 진료과코드
-ORDER BY 5월예약건수, 진료과코드
+SELECT MCDP_CD AS "진료과코드", COUNT(MDDR_ID) AS "5월예약건수" FROM APPOINTMENT
+WHERE TO_CHAR(APNT_YMD, 'YYYYMM') = '202205'
+GROUP BY MCDP_CD
+ORDER BY "5월예약건수", "진료과코드";
