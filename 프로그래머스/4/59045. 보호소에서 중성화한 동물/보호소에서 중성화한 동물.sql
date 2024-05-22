@@ -1,4 +1,5 @@
-SELECT I.animal_id, I.animal_type, I.name
-FROM animal_ins AS I INNER JOIN animal_outs AS O ON I.animal_id = O.animal_id
-WHERE (I.sex_upon_intake LIKE 'Intact%') AND ((O.sex_upon_outcome LIKE 'Spayed%') OR (O.sex_upon_outcome LIKE 'Neutered%'))
-ORDER BY I.animal_id
+SELECT ANIMAL_ID, ANIMAL_TYPE, NAME FROM ANIMAL_OUTS
+WHERE ANIMAL_ID IN (SELECT ANIMAL_ID FROM ANIMAL_INS
+                    WHERE SEX_UPON_INTAKE LIKE 'Intact%') 
+    AND SEX_UPON_OUTCOME NOT LIKE 'Intact%'
+ORDER BY ANIMAL_ID
