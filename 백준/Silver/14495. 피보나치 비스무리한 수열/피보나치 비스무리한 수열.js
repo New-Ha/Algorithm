@@ -1,13 +1,15 @@
 const fs = require('fs');
 const input = fs.readFileSync('/dev/stdin').toString().trim();
-const num = Number(input); 
+const n = +input;
 
-function likeFibo(n, memo = {}) {
-  if (n <= 3) return 1n;
-  if (memo[n] !== undefined) return memo[n];
+const dp = new Array(n + 1).fill(0n); 
 
-  memo[n] = likeFibo(n - 1, memo) + likeFibo(n - 3, memo);
-  return memo[n];
+dp[1] = 1n;
+if (n >= 2) dp[2] = 1n;
+if (n >= 3) dp[3] = 1n;
+
+for (let i = 4; i <= n; i++) {
+  dp[i] = dp[i - 1] + dp[i - 3]; 
 }
 
-console.log(likeFibo(num).toString());
+console.log(dp[n].toString());
