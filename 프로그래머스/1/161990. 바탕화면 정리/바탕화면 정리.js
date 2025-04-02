@@ -1,15 +1,20 @@
 function solution(wallpaper) {
-    const firstIndexs = wallpaper.map(el => el.indexOf('#'))
-    const lux = firstIndexs.findIndex(el => el >= 0)
-    
-    const filterdFirstIndexs = firstIndexs.filter(el => el >= 0)
-    const luy = Math.min(...filterdFirstIndexs)
-    
-    const lastIndexs = wallpaper.map(el => el.lastIndexOf('#')).reverse();
-    const rdx = wallpaper.length - lastIndexs.findIndex(el => el >= 0)
-    
-    const filteredLastIndexs = lastIndexs.filter(el => el >= 0)
-    const rdy = Math.max(...filteredLastIndexs) + 1
+  const rows = wallpaper.length;
+  const cols = wallpaper[0].length;
 
-    return [lux, luy, rdx, rdy]
+  let lux = rows, luy = cols;
+  let rdx = 0, rdy = 0;
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      if (wallpaper[i][j] === '#') {
+        lux = Math.min(lux, i);
+        luy = Math.min(luy, j);
+        rdx = Math.max(rdx, i + 1);
+        rdy = Math.max(rdy, j + 1);
+      }
+    }
+  }
+
+  return [lux, luy, rdx, rdy];
 }
