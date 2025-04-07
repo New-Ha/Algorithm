@@ -1,8 +1,6 @@
 const fs = require('fs');
 const inputArr = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 
-const results = [];
-
 const directions = [
     [-1, 0], [1, 0], [0, -1], [0, 1], 
     [-1, -1], [-1, 1], [1, -1], [1, 1]    
@@ -45,7 +43,5 @@ while(inputArr.length !== 0){
             }
         }
     }
-    results.push(isLandCount)
+    console.log(isLandCount)
 }
-
-results.forEach(count => console.log(count))
