@@ -1,12 +1,14 @@
 const fs = require('fs');
 const input = fs.readFileSync('/dev/stdin').toString().trim();
 
-let n = Number(input);
+const n = Number(input);
 
-const fibo = (n) => {
-    if(n === 0) return 0;
-    if(n === 1) return 1;
-    return fibo(n - 1) + fibo(n - 2)
+const memo = Array(n).fill(-1);
+memo[0] = 0;
+memo[1] = 1;
+
+for(let i = 2; i <= n; i++){
+    memo[i] = memo[i - 1] + memo[i - 2]
 }
 
-console.log(fibo(n))
+console.log(memo[n])
