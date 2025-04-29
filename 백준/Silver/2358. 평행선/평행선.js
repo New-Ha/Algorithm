@@ -11,12 +11,8 @@ for (const [x, y] of coordinates) {
     countY.set(y, (countY.get(y) || 0) + 1);
 }
 
-let result = 0;
-for (const [x, cnt] of countX) {
-    if (cnt >= 2) result += 1;
-}
-for (const [y, cnt] of countY) {
-    if (cnt >= 2) result += 1;
+const countLines = (map) => {
+	return [...map.values()].filter(count => count >= 2).length;
 }
 
-console.log(result)
+console.log(countLines(countX) + countLines(countY));
