@@ -89,7 +89,6 @@ function dijkstraFox() {
       }
     }
   }
-
   return dist;
 }
 
@@ -114,17 +113,15 @@ function dijkstraWolf() {
       }
     }
   }
-
   return dist;
 }
 
-const fox = dijkstraFox();
-const wolf = dijkstraWolf();
+const foxDist = dijkstraFox();
+const wolfDist = dijkstraWolf();
 
 let count = 0;
 for (let i = 2; i <= N; i++) {
-  const wolfMin = Math.min(wolf[i][0], wolf[i][1]);
-  if (fox[i] < wolfMin) count++;
+  if (foxDist[i] < Math.min(wolfDist[i][0], wolfDist[i][1])) count++;
 }
 
 console.log(count);
