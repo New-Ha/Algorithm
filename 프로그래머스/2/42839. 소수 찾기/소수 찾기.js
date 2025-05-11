@@ -7,24 +7,24 @@ function isPrime(n){
 }
 
 function solution(numbers) {
-    const result = [];
+    const result = new Set();
     
-    function getPernutations(nums, len, temp=[]){
+    function getPermutations(nums, len, temp=[]){
         if(temp.length === len){
             const n = Number(temp.join(''));
-            if(isPrime(n)) result.push(n);
+            if(isPrime(n)) result.add(n);
             return;
         }
 
         for(let i = 0; i < nums.length; i++){
             const nextNums = nums.slice(0, i).concat(nums.slice(i+1));
-            getPernutations(nextNums, len, [...temp, nums[i]]);
+            getPermutations(nextNums, len, [...temp, nums[i]]);
         }
     }
     
     for(let i = 1; i <= numbers.length; i++){
-        getPernutations(numbers.split(''), i)
+        getPermutations(numbers.split(''), i)
     }
     
-    return new Set(result).size;
+    return result.size;
 }
