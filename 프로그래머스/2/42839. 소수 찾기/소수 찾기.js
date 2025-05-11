@@ -9,16 +9,16 @@ function isPrime(n){
 function solution(numbers) {
     const result = new Set();
     
-    function getPermutations(nums, len, temp=[]){
+    function getPermutations(nums, len, temp=''){
         if(temp.length === len){
-            const n = Number(temp.join(''));
+            const n = Number(temp);
             if(isPrime(n)) result.add(n);
             return;
         }
 
         for(let i = 0; i < nums.length; i++){
             const nextNums = nums.slice(0, i).concat(nums.slice(i+1));
-            getPermutations(nextNums, len, [...temp, nums[i]]);
+            getPermutations(nextNums, len, temp + nums[i]);
         }
     }
     
