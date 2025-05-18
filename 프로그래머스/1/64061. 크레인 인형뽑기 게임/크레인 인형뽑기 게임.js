@@ -2,24 +2,26 @@ function solution(board, moves) {
     let removedCount = 0;
     
     const len = board.length;
-    const columns = Array.from({length: len}, () => [])
-    for(const line of board){
-        for(let i = 0; i < len; i++){
-            if(line[i] !== 0) columns[i].push(line[i])
+    const columns = Array.from({length: len}, () => []);
+    for (const row of board) {
+        for (let col = 0; col < len; col++) {
+            if (row[col] !== 0) columns[col].push(row[col]);
         }
     }
 
-    const pick = [];
-    for(const move of moves){
-        const item = columns[move - 1].shift();
-        if (item === undefined) continue;
+    const basket = [];
 
-        if (pick[pick.length - 1] === item) {
-            removedCount++;
-            pick.pop();
+    for(const move of moves) {
+        const picked = columns[move - 1].shift();
+
+        if(!picked) continue;
+
+        if(basket[basket.length - 1] === picked) {
+            basket.pop();
+            removedCount += 2;
         } else {
-            pick.push(item);
+            basket.push(picked);
         }
     }
-    return removedCount * 2;
+    return removedCount;
 }
