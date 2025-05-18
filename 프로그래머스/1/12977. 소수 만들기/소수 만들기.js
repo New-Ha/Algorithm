@@ -1,27 +1,26 @@
-function isPrime(n){
-    if(n < 2) return false;
-    for(let i = 2; i <= Math.sqrt(n); i++){
-        if(n % i === 0) return false
+function isPrime(n) {
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
     }
     return true;
 }
 
 function solution(nums) {
     let count = 0;
-    
-    const getPrime = (start, temp) => {
-        if(temp.length === 3){
-            const sum = temp.reduce((a, c) => a + c, 0);
-            if(isPrime(sum)) count++;
+
+    function makeCombination(start = 0, depth = 0, sum = 0) {
+        if (depth === 3) {
+            if (isPrime(sum)) count++;
             return;
         }
-        for(let i = start; i < nums.length; i++){
-            getPrime(i + 1, [...temp, nums[i]]);
+
+        for (let i = start; i < nums.length; i++) {
+            makeCombination(i + 1, depth + 1, sum + nums[i]);
         }
     }
-    
-    getPrime(0, []);
-    
-    return count
-    
+
+    makeCombination();
+
+    return count;
 }
