@@ -1,12 +1,24 @@
 function solution(land) {
-    for(let i = 1; i < land.length; i++) {
+    let firMax = -1;
+    let firIdx = -1;
+    let secMax = -1;
+    
+    for(let i = 1; i < land.length; i++){
         for(let j = 0; j < 4; j++) {
-            let max = 0;
-            for(let k = 0; k < 4; k++) {
-                if(k !== j) max = Math.max(max, land[i - 1][k]);
+            const val = land[i - 1][j];
+            if(val > firMax) {
+                secMax = firMax;
+                firMax = val;
+                firIdx = j;
+            } else if(val > secMax) {
+                secMax = val;
             }
-            land[i][j] += max;
+        }
+
+        for(let j = 0; j < 4; j++){
+            land[i][j] += (j === firIdx ? secMax : firMax);
         }
     }
+    
     return Math.max(...land[land.length - 1]);
 }
