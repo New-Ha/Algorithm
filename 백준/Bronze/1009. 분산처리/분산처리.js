@@ -1,7 +1,5 @@
 const fs = require("fs");
-const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
-
-const t = Number(input[0]);
+const [T, ...lines] = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 
 const pattern = {
     0: [10],
@@ -16,8 +14,8 @@ const pattern = {
     9: [9, 1],
 };
 
-for(let i = 1; i <= t; i++){
-    let [a, b] = input[i].split(" ").map(Number);
+for(const line of lines){
+    let [a, b] = line.split(" ").map(Number);
     a = a % 10;
     b = (b - 1) % pattern[a].length;
     console.log(pattern[a][b]);
