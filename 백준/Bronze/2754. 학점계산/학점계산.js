@@ -4,11 +4,10 @@ const score = fs.readFileSync('/dev/stdin').toString().trim();
 if (score === 'F') {
     console.log('0.0');
 } else {
-    const base = { 'A': 4, 'B': 3, 'C': 2, 'D': 1 };
-    let result = base[score[0]];
+    const [base, option] = score.split('')
+    const bases = { 'A': 4, 'B': 3, 'C': 2, 'D': 1 };
+    const options = {'+' : 0.3, '0': 0, '-': -0.3};
     
-    if (score[1] === '+') result += 0.3;
-    else if (score[1] === '-') result -= 0.3;
-
+    const result = bases[base] + options[option];
     console.log(result.toFixed(1));
 }
