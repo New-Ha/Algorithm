@@ -1,20 +1,23 @@
 const fs = require('fs');
 const [N, answer] = fs.readFileSync(0).toString().trim().split('\n');
 
-const patterns = {
-  Adrian: 'ABC',
-  Bruno: 'BABC',
-  Goran: 'CCAABB'
-};
+const students = [
+  ['Adrian', 'ABC'],
+  ['Bruno', 'BABC'],
+  ['Goran', 'CCAABB']
+];
 
-const scores = Object.entries(patterns).map(([name, pattern]) => [
-  name,
-  [...answer].filter((c, i) => c === pattern[i % pattern.length]).length
-]);
+for (const student of students) {
+  const [name, pattern] = student;
+  const score = [...answer].reduce(
+    (sum, c, i) => sum + (c === pattern[i % pattern.length] ? 1 : 0), 0
+  );
+  student.push(score);
+}
 
-const maxScore = Math.max(...scores.map(([_, s]) => s));
-
+const maxScore = Math.max(...students.map(([, , score]) => score));
 console.log(maxScore);
-scores
-  .filter(([_, s]) => s === maxScore)
+
+students
+  .filter(([, , score]) => score === maxScore)
   .forEach(([name]) => console.log(name));
