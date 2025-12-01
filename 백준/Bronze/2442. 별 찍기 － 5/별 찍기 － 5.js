@@ -1,9 +1,12 @@
 const fs = require('fs');
 const N = Number(fs.readFileSync(0, 'utf8').trim());
 
-const max = 2 * N - 1;
+function makeLine(N, i) {
+  const spaces = ' '.repeat(N - i);
+  const stars = '*'.repeat(2 * i - 1);
+  return spaces + stars;
+}
+
 for(let i = 1; i <= N; i++){
-    const stars = '*'.repeat(2 * i - 1);
-    const half = " ".repeat((max - stars.length) / 2);
-    console.log(half + stars)
+    console.log(makeLine(N, i))
 }
