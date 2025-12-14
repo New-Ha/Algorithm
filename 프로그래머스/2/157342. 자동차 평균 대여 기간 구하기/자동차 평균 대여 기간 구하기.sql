@@ -1,6 +1,6 @@
-SELECT CAR_ID,
-       TO_CHAR(ROUND(AVG(END_DATE - START_DATE + 1), 1), 'FM9990.0' ) AS AVERAGE_DURATION
-FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
-GROUP BY CAR_ID
-HAVING AVG(END_DATE - START_DATE + 1) >= 7
-ORDER BY TO_NUMBER(AVERAGE_DURATION) DESC, CAR_ID DESC;
+SELECT car_id, 
+       TO_CHAR(ROUND(AVG(end_date - start_date + 1), 1), 'FM9990.0') AS average_duration 
+FROM car_rental_company_rental_history
+GROUP BY car_id
+HAVING AVG(end_date - start_date + 1) >= 7
+ORDER BY TO_NUMBER(average_duration) DESC, car_id DESC;
