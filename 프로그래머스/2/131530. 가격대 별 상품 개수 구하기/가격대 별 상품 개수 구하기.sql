@@ -1,4 +1,11 @@
-SELECT (FLOOR(price / 10000) * 10000) AS price_group, COUNT(*) AS products
+-- case 1
+-- SELECT (FLOOR(price / 10000) * 10000) AS price_group, COUNT(*) AS products
+-- FROM product
+-- GROUP BY (FLOOR(price / 10000) * 10000)
+-- ORDER BY price_group;
+
+-- case 2
+SELECT TRUNC(price, -4) AS price_group, COUNT(*) AS products
 FROM product
-GROUP BY (FLOOR(price / 10000) * 10000)
+GROUP BY TRUNC(price, -4)
 ORDER BY price_group;
