@@ -1,7 +1,4 @@
-# 물고기의 종류별(GROUP) 이름(FISH_NAME)과 잡은 수(FISH_COUNT)
-# COUNT기준 내림차순
-
-SELECT COUNT(ID) AS FISH_COUNT, FISH_NAME FROM FISH_INFO AS I
-JOIN FISH_NAME_INFO AS N USING(FISH_TYPE)
-GROUP BY FISH_NAME
-ORDER BY FISH_COUNT DESC
+SELECT COUNT(id) AS fish_count, fish_name
+FROM fish_info I JOIN fish_name_info N USING (fish_type)
+GROUP BY fish_type, fish_name
+ORDER BY fish_count DESC
