@@ -1,4 +1,6 @@
-SELECT O.ANIMAL_ID, O.NAME FROM ANIMAL_OUTS AS O
-LEFT JOIN ANIMAL_INS AS I ON O.ANIMAL_ID = I.ANIMAL_ID
-WHERE I.ANIMAL_ID IS NULL
-ORDER BY ANIMAL_ID
+SELECT O.animal_id, O.name
+FROM animal_outs O 
+LEFT JOIN animal_ins I
+    ON O.animal_id = I.animal_id
+WHERE I.animal_id IS NULL
+ORDER BY O.animal_id
