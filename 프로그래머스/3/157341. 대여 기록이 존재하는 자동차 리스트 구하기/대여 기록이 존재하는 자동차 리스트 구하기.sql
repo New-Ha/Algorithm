@@ -1,5 +1,9 @@
-SELECT DISTINCT C.CAR_ID
-FROM CAR_RENTAL_COMPANY_CAR C, CAR_RENTAL_COMPANY_RENTAL_HISTORY H
-WHERE C.CAR_ID = H.CAR_ID 
-    AND (C.CAR_TYPE = '세단' AND TO_CHAR(H.START_DATE, 'MM') = '10')
-ORDER BY C.CAR_ID DESC;
+SELECT C.car_id
+FROM car_rental_company_car C
+WHERE C.car_type = '세단'
+  AND EXISTS (
+      SELECT 1 FROM car_rental_company_rental_history H
+      WHERE C.car_id = H.car_id
+        AND H.start_date >= '2022-10-01' AND H.start_date < '2022-11-01'
+  )
+ORDER BY C.car_id DESC
