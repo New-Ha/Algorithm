@@ -1,13 +1,15 @@
 const fs = require('fs'); 
 let [n, dasom, ...others] = fs.readFileSync(0, 'utf-8').toString().trim().split('\n').map(Number);
 
+others.sort((a, b) => b - a);
+
 let count = 0;
-while(dasom <= Math.max(...others)){
-    const max = Math.max(...others)
-    const maxIdx = others.indexOf(max);
-    others[maxIdx]--;
+while (others.length > 0 && others[0] >= dasom) {
+    others[0]--;
     dasom++;
     count++;
+
+    others.sort((a, b) => b - a);
 }
 
-console.log(count)
+console.log(count);
