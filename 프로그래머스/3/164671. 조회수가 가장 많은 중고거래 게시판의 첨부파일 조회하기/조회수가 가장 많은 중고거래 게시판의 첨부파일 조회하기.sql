@@ -1,4 +1,4 @@
-SELECT CONCAT('/home/grep/src/', board_id, '/', file_id, file_name, file_ext) AS file_path
+SELECT '/home/grep/src/' || board_id || '/' || file_id || file_name || file_ext AS file_path
 FROM used_goods_file
 WHERE board_id = (
   SELECT b.board_id
@@ -6,6 +6,6 @@ WHERE board_id = (
     JOIN used_goods_file f
     ON b.board_id = f.board_id
   ORDER BY b.views DESC
-  LIMIT 1
+  FETCH FIRST 1 ROWS ONLY
 )
 ORDER BY file_id DESC
