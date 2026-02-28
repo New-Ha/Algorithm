@@ -1,20 +1,11 @@
 const fs = require('fs');
-const [n, ...input] = fs.readFileSync(0, 'utf-8').toString().trim().split('\n');
-const N = Number(n);
+const [N, ...input] = fs.readFileSync(0, 'utf8').trim().split('\n');
 
-const users = [];
-for(let i = 0; i < N; i++){
-    const [age, name] = input[i].split(' ');
-    users.push([Number(age), i, name]);
-}
+const users = input
+  .map(line => {
+    const [age, name] = line.split(' ');
+    return { age: +age, name };
+  })
+  .sort((a, b) => a.age - b.age);
 
-users.sort((a, b) => {
-    if(a[0] === b[0]){
-        return a[1] - b[1];
-    }
-    return a[0] - b[0];
-})
-
-for (const [age, , name] of users) {
-    console.log(`${age} ${name}`);
-}
+console.log(users.map(u => `${u.age} ${u.name}`).join('\n'));
