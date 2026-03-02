@@ -1,10 +1,9 @@
 const fs = require('fs');
+const [nm, ...input] = fs.readFileSync(0, 'utf8').trim().split('\n');
 
-const numbers = fs.readFileSync(0, 'utf8')
-  .trim()
-  .split('\n')
-  .slice(1)
-  .flatMap(line => line.split(' ').map(Number))
-  .sort((a, b) => a - b);
+const mergeArr = [];
+for (const line of input) {
+  mergeArr.push(...line.split(' ').map(Number));
+}
 
-console.log(numbers.join(' '));
+console.log(mergeArr.sort((a, b) => a - b).join(' '));
